@@ -1,0 +1,29 @@
+    <ion-view view-title="天气预报">
+      <ion-content>
+        <div ng-repeat="row in data" class="list list-inset">
+          <!--<div class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" ng-model="data.city" placeholder="城市">
+          </div>
+          <div on-tap="getInfo()" class="button button-block button-outline button-positive">取得信息 Get Information</div>-->
+          <div class="item item-body">
+            {{ row.city }} ({{ row.wd }}℃)
+            <p>{{ row.gm }}</p>
+          </div>
+          <div class="item w row">
+            <div class="col" ng-repeat="day in row.wk">
+              <h3>{{ day.week }}</h3>
+              <h4>{{ day.day }}</h4>
+              <div>{{ day.tmp }}</div>
+              <p>{{ day.fx }}</p>
+              <p>{{ day.fl }}</p>
+              <div>
+                <i class="wicon wi {{ day.type | wicon }}" style="margin: 10px 0;font-size: 36px;"></i>
+              </div>
+              <div>{{ day.type }}</div>
+            </div>
+          </div>
+        </div>
+       <!--<pre>{{ info | json }}</pre>-->
+      </ion-content>
+    </ion-view>

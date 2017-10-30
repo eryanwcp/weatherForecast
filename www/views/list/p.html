@@ -1,0 +1,43 @@
+<ion-view view-title="选取地区城市">
+  <ion-content>
+    <ion-list>
+      <div class="item item-divider">
+        已选城市地区列表
+        <div class="badge">拖动排序</div>
+      </div>
+      <ion-item class="item-remove-animate item item-icon-left" on-drag-up="move($index, -1)" on-drag-down="move($index, 1)" ng-repeat="row in data">
+        <i class="icon ion-android-sunny"></i>
+        {{ row.name }} {{ row.code }}
+        <ion-option-button ng-click="remove($index)" class="button-assertive">
+          删除
+        </ion-option-button>
+      </ion-item>
+    <ion-list>
+
+    <!--<div class="list list-inset">
+      <div class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" ng-model="data.city" placeholder="城市">
+      </div>
+      <div on-tap="getInfo()" class="button button-block button-outline button-positive">取得信息 Get Information</div>
+    </div>-->
+
+    <div class="list list-inset">
+      <div class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" ng-model="find.keyword" ng-click="getList()" placeholder="城市名或代码">
+      </div>
+    </div>
+
+    <div on-tap="getList()" class="button button-block button-outline button-positive">
+    查询天气
+    </div>
+
+    <ion-item class="item-body">
+      <div class="button button-outline button-dark" ng-repeat="row in lists" ng-click="add($index)">
+        {{ row.name }} {{ row.code }}
+      </div>
+    </ion-item>
+
+  </ion-content>
+</ion-view>
